@@ -52,7 +52,7 @@ namespace Amazon.Kinesis.ClientLibrary.SampleProducer
         /// http://docs.aws.amazon.com/sdkfornet/latest/apidocs/items/MKinesis_KinesisClientctorNET4_5.html.
         /// You may also wish to change the RegionEndpoint.
         /// </summary>
-        private static readonly AmazonKinesisClient kinesisClient = new AmazonKinesisClient(RegionEndpoint.USEast1);
+        private static readonly AmazonKinesisClient kinesisClient = new AmazonKinesisClient(RegionEndpoint.USWest2);
 
         /// <summary>
         /// This method verifies your credentials, creates a Kinesis stream, waits for the stream
@@ -60,9 +60,9 @@ namespace Amazon.Kinesis.ClientLibrary.SampleProducer
         /// </summary>
         public static void Main(string[] args)
         {
-            const string myStreamName = "myTestStream";
-            const int myStreamSize = 1;
-
+            const string myStreamName = "cesarn-consumer-stream";
+            const int myStreamSize = 2;
+            /*
             try
             {
                 var createStreamRequest = new CreateStreamRequest();
@@ -80,10 +80,10 @@ namespace Amazon.Kinesis.ClientLibrary.SampleProducer
             }
 
             WaitForStreamToBecomeAvailable(myStreamName);
-
+            */
             Console.Error.WriteLine("Putting records in stream : " + myStreamName);
             // Write 10 UTF-8 encoded records to the stream.
-            for (int j = 0; j < 10; ++j)
+            for (int j = 0; j < 1000; ++j)
             {
                 PutRecordRequest requestRecord = new PutRecordRequest();
                 requestRecord.StreamName = myStreamName;

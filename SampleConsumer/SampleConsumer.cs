@@ -16,7 +16,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Amazon.Kinesis.ClientLibrary;
 
 namespace Amazon.Kinesis.ClientLibrary.SampleConsumer
 {
@@ -112,9 +111,9 @@ namespace Amazon.Kinesis.ClientLibrary.SampleConsumer
                         data = System.Text.Encoding.UTF8.GetString(rec.Data);
 
                         // Uncomment the following if you wish to see the retrieved record data.
-                        //Console.Error.WriteLine(
-                        //    String.Format("Retrieved record:\n\tpartition key = {0},\n\tsequence number = {1},\n\tdata = {2}",
-                        //    rec.PartitionKey, rec.SequenceNumber, data));
+                        Console.Error.WriteLine(
+                            String.Format("Retrieved record:\n\tpartition key = {0},\n\tsequence number = {1},\n\tdata = {2}",
+                            rec.PartitionKey, rec.SequenceNumber, data));
 
                         // Your own logic to process a record goes here.
 
